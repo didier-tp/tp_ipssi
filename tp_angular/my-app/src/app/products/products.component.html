@@ -1,0 +1,18 @@
+
+nom: <input [(ngModel)]="nouveauProduit.name" type='text' /> <br/>
+prix: <input [(ngModel)]="nouveauProduit.price"
+             [class.positif]="nouveauProduit.price >=0"
+             [class.negatif]="nouveauProduit.price < 0" type='text' /> <br/>
+description: <input [(ngModel)]="nouveauProduit.description"  type='text' /> <br/>
+
+<input type='button' (click)='onAjoutProduit()' value='ajouter produit'> <br/>
+ 
+<table border="1">
+    <tr><th>num</th><th>name</th><th>price</th><th>description</th></tr>
+    <tr *ngFor="let p of listeProduits">
+         <td>{{p.num}}</td>
+         <td>{{p.name}}</td>
+         <td>{{p.price}}</td>
+         <td>{{p.description}}</td>
+    </tr>
+</table>
