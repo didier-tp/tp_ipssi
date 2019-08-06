@@ -1,13 +1,28 @@
-<div [style.background]="'yellow'">
-<form>
-nom: <input name="nom" [(ngModel)]="nouveauProduit.name" type='text' /> <br/>
-prix: <input name="prix" [(ngModel)]="nouveauProduit.price"
-             [class.positif]="nouveauProduit.price >=0"
-             [class.negatif]="nouveauProduit.price < 0" type='text' /> <br/>
-description: <input name="description" [(ngModel)]="nouveauProduit.description"  type='text' /> <br/>
-
+<div style="text-align:left" [style.background]="'yellow'">
+<form #formProduct="ngForm" vclass="form-horizontal">
+    <div class="form-group row">
+        <label for="nom" class="control-label col-sm-4">nom:</label>
+       <div class="col-sm-8">
+           <input name="nom" [(ngModel)]="nouveauProduit.name" type='text' /> 
+        </div>
+    </div>
+    <div class="form-group row">
+            <label for="prix" class="control-label col-sm-4">prix:</label>
+            <div class="col-sm-8">
+               <input name="prix" [(ngModel)]="nouveauProduit.price"
+                    [class.positif]="nouveauProduit.price >=0"
+                    [class.negatif]="nouveauProduit.price < 0" type='text' />
+             </div> 
+    </div>
+    <div class="form-group row">
+            <label for="description" class="control-label col-sm-4">description:</label>
+            <div class="col-sm-8">
+                   <input name="description" required
+                    [(ngModel)]="nouveauProduit.description"  type='text' /> 
+                </div>
+     </div>
 <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-<input type='button'
+<input type='button' [disabled]="!formProduct.form.valid"
    class="btn btn-primary" (click)='onAjoutProduit()' value='ajouter produit'> <br/>
 </form>
 
