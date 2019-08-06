@@ -1,6 +1,7 @@
 <div [style.background]="couleurFond">
-  <span>header works! </span>
-  couleurFond:<select [(ngModel)]='couleurFond'>
+  <span>{{titre}} </span>
+  couleurFond:<select [(ngModel)]='couleurFond'
+               (change)="riseEvent($event)" >
     <!--
       <option>lightgrey</option>
       <option>red</option>

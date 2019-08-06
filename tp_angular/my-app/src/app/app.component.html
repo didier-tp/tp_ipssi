@@ -3,7 +3,7 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <app-header></app-header>
+  <app-header [titre]="title" (couleurEvent)="onCouleurChange($event)"></app-header>
   <app-products></app-products>
 </div>
 
