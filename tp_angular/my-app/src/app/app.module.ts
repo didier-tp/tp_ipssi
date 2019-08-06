@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductsComponent } from './products/products.component';
 import { HeaderComponent } from './header/header.component';
+import { ToggglePanelComponent } from './togggle-panel/togggle-panel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
-    HeaderComponent
+    HeaderComponent,
+    ToggglePanelComponent
   ],
   imports: [
     BrowserModule,

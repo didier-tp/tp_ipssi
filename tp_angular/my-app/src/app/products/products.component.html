@@ -28,6 +28,8 @@
    class="btn btn-primary" (click)='onAjoutProduit()' value='ajouter produit'> <br/>
 </form>
 
+<app-togggle-panel [title]=" 'liste produits' " >
+
 <table border="1">
     <tr><th>num</th><th>name</th><th>price</th><th>description</th></tr>
     <tr *ngFor="let p of listeProduits">
@@ -37,4 +39,6 @@
          <td>{{p.description}}</td>
     </tr>
 </table>
+
+</app-togggle-panel>
 </div>
