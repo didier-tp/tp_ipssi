@@ -3,13 +3,15 @@
     <div class="form-group row">
         <label for="nom" class="control-label col-sm-4">nom:</label>
        <div class="col-sm-8">
-           <input name="nom" [(ngModel)]="nouveauProduit.name" type='text' /> 
+           <input name="nom" required 
+           [(ngModel)]="nouveauProduit.name" type='text' /> 
         </div>
     </div>
     <div class="form-group row">
             <label for="prix" class="control-label col-sm-4">prix:</label>
             <div class="col-sm-8">
-               <input name="prix" [(ngModel)]="nouveauProduit.price"
+               <input name="prix" required
+                     [(ngModel)]="nouveauProduit.price"
                     [class.positif]="nouveauProduit.price >=0"
                     [class.negatif]="nouveauProduit.price < 0" type='text' />
              </div> 
