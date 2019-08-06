@@ -17,18 +17,18 @@ app.get("/products/:numero" , function(req,res,next){
 				 prod = p; break;
 		        }
 		 }
+	if(prod==null)
+      res.status(404).send(null);	//404 = status HTTP notfound .	
+		else
 	res.send(prod);
 });
-
 //http://localhost:8282/products
 //ou bien http://localhost:8282/products?prixMax=2
 app.get("/products" , function(req,res,next){
-	let prixMaxi = req.query.prixMax;
-	console.log("prixMaxi="+prixMaxi);
+	let prixMaxi = req.query.prixMax;	console.log("prixMaxi="+prixMaxi);
 	if(prixMaxi == null)
 	   res.send(listeProduits);
-     else {
-		 //ne renvoyer que les produits pas trop chers .
+     else { //ne renvoyer que les produits pas trop chers .
 		 let listeProduitsPasTropChers = [];
 		 for(let p of listeProduits){
 			 if(p.price < Number(prixMaxi)){
