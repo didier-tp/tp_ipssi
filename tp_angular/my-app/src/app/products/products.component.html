@@ -1,4 +1,4 @@
-
+<div [style.background]="'yellow'">
 nom: <input [(ngModel)]="nouveauProduit.name" type='text' /> <br/>
 prix: <input [(ngModel)]="nouveauProduit.price"
              [class.positif]="nouveauProduit.price >=0"
@@ -16,3 +16,4 @@ description: <input [(ngModel)]="nouveauProduit.description"  type='text' /> <br
          <td>{{p.description}}</td>
     </tr>
 </table>
+</div>
