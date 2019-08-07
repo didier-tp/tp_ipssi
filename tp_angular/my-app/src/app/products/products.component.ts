@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Product } from '../product';
 import { NgForm, Validators } from '@angular/forms';
+import { ProductsService } from '../products.service';
 
 @Component({
   selector: 'app-products',
@@ -15,12 +16,18 @@ export class ProductsComponent implements OnInit  {
 
   @ViewChild('formProduct') form : NgForm ; //pour accéder/manipuler <form #formXy="ngForm"
 
-  constructor() { 
-   //code temporaire (avant appel Web service):
+  constructor(private productsService : ProductsService) { 
+   this.productsService.rechercherProduits(null)
+                       .subscribe( listeProd => this.listeProduits = listeProd,
+                                   err => console.log(err));
+
+   /*
+    //code temporaire (avant appel Web service):
    this.listeProduits.push(new Product(1,"cahier",2.5,"grand cahier"));
    this.listeProduits.push(new Product(2,"gomme",1.5,"petite gomme"));
    this.listeProduits.push(new Product(3,"trousse",4.5,"trousse rouge"));
-   this.numProdMax=3
+   this.numProdMax=3*/
+
   }
 
   public onAjoutProduit(){

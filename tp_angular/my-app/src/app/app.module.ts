@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { ProductsComponent } from './products/products.component';
 import { HeaderComponent } from './header/header.component';
 import { ToggglePanelComponent } from './togggle-panel/togggle-panel.component';
+import { ProductsService } from './products.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { ToggglePanelComponent } from './togggle-panel/togggle-panel.component';
     AppRoutingModule ,
     FormsModule
   ],
-  providers: [],
+  providers: [ProductsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
