@@ -30,6 +30,12 @@
 <!-- 
 <app-togggle-panel [title]=" 'liste produits' " >
 -->
+prixMaxi: 
+<!-- <input [(ngModel)]="prixMaxi" /> 
+     <input type="button" value="refresh" (click)="onRefreshPrixMaxi()" />
+-->
+<input [(ngModel)]="prixMaxi" (input)="onRefreshPrixMaxi()" /> 
+ <br/>
 <table border="1">
     <tr><th>num</th><th>name</th><th>price</th><th>description</th></tr>
     <tr *ngFor="let p of listeProduits">

@@ -13,7 +13,7 @@ export class ProductsComponent implements OnInit  {
   numProdMax : number;
   nouveauProduit : Product = new Product();
   listeProduits  : Product[] = [];
-
+  prixMaxi : number ; //undefined / default
   
   constructor(private productsService : ProductsService) { 
    this.productsService.rechercherProduits(null)
@@ -28,6 +28,13 @@ export class ProductsComponent implements OnInit  {
    this.numProdMax=3*/
 
   }
+
+  onRefreshPrixMaxi() { 
+    this.productsService.rechercherProduits(this.prixMaxi)
+                        .subscribe( (listeProd) => { this.listeProduits = listeProd },
+                                    (err) => { console.log(err) });
+  }
+ 
 
   public onAjoutProduit(){
     this.numProdMax++; //simuler auto incrementation

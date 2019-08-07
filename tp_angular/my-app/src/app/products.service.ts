@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from './product';
-import { Observable, of } from 'rxjs';
+import { Observable, of  } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -18,9 +19,14 @@ export class ProductsService {
     //NB: URL absolue ok si autorisations "CORS" dans nodejs/express
     //let urlWs = "http://localhost:8282/catalogue/public/products";
     let urlWs = "./catalogue/public/products";
+    if(prixMaxi) 
+        urlWs+="?prixMax="+prixMaxi;
     //NB: url relative ok si ng serve --proxy-config proxy.conf.json
     //ou équivalent en prod (et pas besoin de autorisation "CORS")
-    return this.http.get<Product[]>(urlWs);
+    return this.http.get<Product[]>(urlWs)
+                    /*.pipe(
+                        map( (prods) => prods.sort( (p1,p2) => (p1.price - p2.price) ) )
+                     );*/
    /*
     //code temporaire avant vrai appel du web service
     return of([
