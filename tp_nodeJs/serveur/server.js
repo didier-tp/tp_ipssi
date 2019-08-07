@@ -5,10 +5,11 @@ var app = express();
 var jsonParser = bodyParser.json() ;
 app.use(jsonParser);
 
-var numProdMax = 2;
+var numProdMax = 3;
 var listeProduits = [
 { num : 1 , name : "cahier" , price : 2.5 , description : "petit cahier" },
-{ num : 2 , name : "stylo" , price : 1.5 , description : "stylo bille" }
+{ num : 2 , name : "stylo" , price : 1.5 , description : "stylo bille" },
+{ num : 3 , name : "gomme" , price : 3.4 , description : "gomme blanche" }
 ];
 
 //POST ... with body {  "name" : "gomme" , "price" : 3.5 }
@@ -22,17 +23,29 @@ res.send(nouveauProduit); //on renvoie souvent une copie des données postées
 
 //http://localhost:8282/products/1 (suppression selon id/pk)
 app.delete("/products/:numero" , function(req,res,next){
-	//à faire en TP (code + test via postman)
-	
-	//retourner status 200 si ok
-	//404 si pas trouvé et pas upprimé
+	let numProd = req.params.numero; //1 ou 2 ou ...
+	console.log("delete avec numProd="+numProd);
+	//à faire en Tp : ne renvoyer que le produit dont .num vaut numProd
+	notfound = true;
+	for(let i in listeProduits){
+			 if(listeProduits[i].num == numProd){
+				 //delete listeProduits[i];//--> trou "undefined" 
+				 listeProduits.splice(i, 1) ; //meilleur suppression dans tableau
+				 res.status(200).send(null);
+				 notfound=false;
+				 break;
+		        }
+		 }
+	if(notfound)
+      res.status(404).send(null);	//404 = status HTTP notfound .	
+	  
 });
 
 
 //http://localhost:8282/products/1 (recherche unique par id/pk)
 app.get("/products/:numero" , function(req,res,next){
 	let numProd = req.params.numero; //1 ou 2 ou ...
-	console.log("numProd="+numProd);
+	console.log("get avec numProd="+numProd);
 	//à faire en Tp : ne renvoyer que le produit dont .num vaut numProd
 	var prod = null;
 	for(let p of listeProduits){
