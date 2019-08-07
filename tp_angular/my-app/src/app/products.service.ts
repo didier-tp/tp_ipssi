@@ -15,7 +15,11 @@ export class ProductsService {
       // - un objet technique immédiatement retourné par cette méthode
       // - qui permettra de récupéré le résultat en différé (asynchrone)
   rechercherProduits(prixMaxi : number) : Observable < Product[] > {
-    let urlWs = "http://localhost:8282/catalogue/public/products";
+    //NB: URL absolue ok si autorisations "CORS" dans nodejs/express
+    //let urlWs = "http://localhost:8282/catalogue/public/products";
+    let urlWs = "./catalogue/public/products";
+    //NB: url relative ok si ng serve --proxy-config proxy.conf.json
+    //ou équivalent en prod (et pas besoin de autorisation "CORS")
     return this.http.get<Product[]>(urlWs);
    /*
     //code temporaire avant vrai appel du web service

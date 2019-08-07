@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var app = express();
 var jsonParser = bodyParser.json() ;
 app.use(jsonParser);
-
+/*
 // Exemple : CORS enabled with express/node-js :
 app.use(function(req, res, next) {
 res.header("Access-Control-Allow-Origin", "*"); //"*" ou "xy.com , ..."
@@ -15,6 +15,7 @@ res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE,OPTIONS"); //
 res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type,Accept , Authorization");
 next();
 });
+*/
 
 var numProdMax = 3;
 var listeProduits = [
