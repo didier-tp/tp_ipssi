@@ -10,7 +10,6 @@ import { ProductsService } from '../products.service';
 })
 export class ProductsComponent implements OnInit  {
   
-  numProdMax : number;
   nouveauProduit : Product = new Product();
   listeProduits  : Product[] = [];
   prixMaxi : number ; //undefined / default
@@ -37,9 +36,12 @@ export class ProductsComponent implements OnInit  {
  
 
   public onAjoutProduit(){
-    this.numProdMax++; //simuler auto incrementation
-    this.nouveauProduit.num = this.numProdMax;
-    this.listeProduits.push(this.nouveauProduit);
+    this.productsService.ajouterProduit(this.nouveauProduit)
+        .subscribe( (produitEnregistre) => { 
+                          console.log("produit enregistre=" + produitEnregistre);
+                          this.onRefreshPrixMaxi();
+                         },
+                    (err) => { console.log(err) })
     this.nouveauProduit = new Product();
   }
 
