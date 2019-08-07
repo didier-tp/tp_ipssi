@@ -9,7 +9,7 @@ import { ProductsComponent } from './products/products.component';
 import { HeaderComponent } from './header/header.component';
 import { ToggglePanelComponent } from './togggle-panel/togggle-panel.component';
 import { ProductsService } from './products.service';
-
+import { HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +20,8 @@ import { ProductsService } from './products.service';
   imports: [
     BrowserModule,
     AppRoutingModule ,
-    FormsModule
+    FormsModule , 
+    HttpClientModule
   ],
   providers: [ProductsService],
   bootstrap: [AppComponent]

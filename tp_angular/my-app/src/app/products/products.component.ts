@@ -14,12 +14,11 @@ export class ProductsComponent implements OnInit  {
   nouveauProduit : Product = new Product();
   listeProduits  : Product[] = [];
 
-  @ViewChild('formProduct') form : NgForm ; //pour accéder/manipuler <form #formXy="ngForm"
-
+  
   constructor(private productsService : ProductsService) { 
    this.productsService.rechercherProduits(null)
-                       .subscribe( listeProd => this.listeProduits = listeProd,
-                                   err => console.log(err));
+                       .subscribe( (listeProd) => { this.listeProduits = listeProd },
+                                   (err) => { console.log(err) });
 
    /*
     //code temporaire (avant appel Web service):
@@ -40,6 +39,7 @@ export class ProductsComponent implements OnInit  {
   ngOnInit() {
   }
 
+  @ViewChild('formProduct') form : NgForm ; //pour accéder/manipuler <form #formXy="ngForm"
 
   onFormInit(){
     console.log("onFormInit() called")

@@ -8,9 +8,17 @@ var app = express();
 var jsonParser = bodyParser.json() ;
 app.use(jsonParser);
 
+// Exemple : CORS enabled with express/node-js :
+app.use(function(req, res, next) {
+res.header("Access-Control-Allow-Origin", "*"); //"*" ou "xy.com , ..."
+res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE,OPTIONS"); //default: GET, ...
+res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type,Accept , Authorization");
+next();
+});
+
 var numProdMax = 3;
 var listeProduits = [
-{ num : 1 , name : "cahier" , price : 2.5 , description : "petit cahier" },
+{ num : 1 , name : "cahier server" , price : 2.5 , description : "petit cahier" },
 { num : 2 , name : "stylo" , price : 1.5 , description : "stylo bille" },
 { num : 3 , name : "gomme" , price : 3.4 , description : "gomme blanche" }
 ];
