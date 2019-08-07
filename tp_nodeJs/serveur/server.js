@@ -5,18 +5,29 @@ var app = express();
 var jsonParser = bodyParser.json() ;
 app.use(jsonParser);
 
+var numProdMax = 2;
 var listeProduits = [
 { num : 1 , name : "cahier" , price : 2.5 , description : "petit cahier" },
 { num : 2 , name : "stylo" , price : 1.5 , description : "stylo bille" }
 ];
 
-//POST ... with body { "num" : 3  , "name" : "gomme" , "price" : 3.5 }
+//POST ... with body {  "name" : "gomme" , "price" : 3.5 }
 app.post('/products', function(req , res ) {
 var nouveauProduit = req.body ; //as javascript object
+nouveauProduit.num = ++numProdMax; //simuler auto incrémentation
 listeProduits.push(nouveauProduit);
 res.send(nouveauProduit); //on renvoie souvent une copie des données postées
                           // avec un id auto incrémenté
 });
+
+//http://localhost:8282/products/1 (suppression selon id/pk)
+app.delete("/products/:numero" , function(req,res,next){
+	//à faire en TP (code + test via postman)
+	
+	//retourner status 200 si ok
+	//404 si pas trouvé et pas upprimé
+});
+
 
 //http://localhost:8282/products/1 (recherche unique par id/pk)
 app.get("/products/:numero" , function(req,res,next){
