@@ -38,7 +38,8 @@ export class ProductsComponent implements OnInit  {
   public onAjoutProduit(){
     this.productsService.ajouterProduit(this.nouveauProduit)
         .subscribe( (produitEnregistre) => { 
-                          console.log("produit enregistre=" + produitEnregistre);
+                          console.log("produit enregistre=" + 
+                               JSON.stringify(produitEnregistre));
                           this.onRefreshPrixMaxi();
                          },
                     (err) => { console.log(err) })
