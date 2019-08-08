@@ -1,3 +1,11 @@
 <p> welcome works!</p>
 <a [routerLink]="['/login']" >vers login</a> <br/>
-<a [routerLink]="['/products']" >vers products</a> <br/>
+
+
+categorie: <select [(ngModel)]="categorieProduit" >
+  <option>papeterie</option>
+  <option>imprimante</option>
+  <option>ordinateur</option>
+</select> 
+<a [routerLink]="['/products' , categorieProduit ]" >produits 
+        de la categorie selectionnée</a> <br/>

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
+  categorieProduit : string ="papeterie"; //valeur par defaut
+
   constructor() { }
 
   ngOnInit() {

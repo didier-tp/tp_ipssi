@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Product } from '../product';
 import { NgForm, Validators } from '@angular/forms';
 import { ProductsService } from '../products.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -13,8 +14,17 @@ export class ProductsComponent implements OnInit  {
   nouveauProduit : Product = new Product();
   listeProduits  : Product[] = [];
   prixMaxi : number ; //undefined / default
+
+  categorieProd : string ; //à afficher via {{categorieProd}}
+        //éventuel critère de recherche sur appel WS en get
   
-  constructor(private productsService : ProductsService) { 
+  constructor(private route : ActivatedRoute,
+              private productsService : ProductsService) { 
+   //NB: 'categorie' correspond au nom logique du paramètre variable
+   //en fin du path '/products/:categorie' d'une des routes
+   this.categorieProd = this.route.snapshot.params['categorie'];
+   console.log("categorie="+this.categorieProd);
+
    this.productsService.rechercherProduits(null)
                        .subscribe( (listeProd) => { this.listeProduits = listeProd },
                                    (err) => { console.log(err) });

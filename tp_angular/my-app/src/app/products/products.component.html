@@ -36,6 +36,7 @@ prixMaxi:
 -->
 <input [(ngModel)]="prixMaxi" (input)="onRefreshPrixMaxi()" /> 
  <br/>
+ categorie = <b>{{categorieProd}}</b> <br/>
 <table border="1">
     <tr><th>num</th><th>name</th><th>price</th><th>description</th></tr>
     <tr *ngFor="let p of listeProduits">
