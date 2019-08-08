@@ -4,9 +4,11 @@
     Welcome to {{ title }}!
   </h1>
   <app-header [titre]="title" (couleurEvent)="onCouleurChange($event)"></app-header>
-  <app-products></app-products>
 </div>
 
 
+<!-- <app-products></app-products> -->
 
-<router-outlet></router-outlet>
+<router-outlet></router-outlet><!-- automatiquement remplacé welcome 
+           ou login ou product en fonction du paramétrage des routes -->
+<p>footer - <a [routerLink]="['/welcome']" >retour accueil</a> </p>                        

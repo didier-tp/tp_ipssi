@@ -10,12 +10,16 @@ import { HeaderComponent } from './header/header.component';
 import { ToggglePanelComponent } from './togggle-panel/togggle-panel.component';
 import { ProductsService } from './products.service';
 import { HttpClientModule} from '@angular/common/http';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
     HeaderComponent,
-    ToggglePanelComponent
+    ToggglePanelComponent,
+    WelcomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
