@@ -1,0 +1,8 @@
+
+...
+
+XmlHttpRequest (pas vu par tout le monde)
+$.ajax (vu avec jquery)
+fetch et Promise (pas vu en cours)
+RxJs (techno utilisé dans angular pour appeler ws)
+....

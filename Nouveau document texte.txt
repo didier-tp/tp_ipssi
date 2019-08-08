@@ -1,0 +1,34 @@
+URL sur github d'exemples (angular/nginx , nodeJs/express , ...) avec docker
+============================================================================
+
+exemple de frontEnd "angular":
+------------------------------
+https://github.com/didier-mycontrib/tp_angular4plus/tree/master/devise-app
+==> Dockerfile , docker-nginx.conf , README-Docker.txt
+
+
+exemple de backEnd "java/springBoot":
+---------------------------------- 
+https://github.com/didier-mycontrib/jee-spring-app-demo/tree/master/deviseApi
+==> Dockerfile , readme-docker.txt
+
+exemple de backEnd "nodeJs/express":
+------------------------------------
+https://github.com/didier-mycontrib/tp_node_js/tree/master/deviseApiNodeSq
+==> Dockerfile , readme_docker.txt
+
+
+exemple de base mysql configurée dans docker:
+----------------------------------- 
+https://github.com/didier-mycontrib/tp_node_js/tree/master/deviseApiNodeSq/mysql-scripts/docker-scripts
+==> Dockerfile , readme_docker.txt , schema.sql , ...
+
+
+exemple de communication entre 3 conteneurs dockers (front,backend,database)
+---------------------------------------------
+==> ????
+
+
+
+
+
