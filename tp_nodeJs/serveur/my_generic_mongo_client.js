@@ -75,6 +75,7 @@ var genericFindOne = function(collectionName,query, callback_with_err_and_item) 
 			if(err!=null) {
 				console.log("genericFindByOne error = " + err);
 		}
+		console.log("found item="+JSON.stringify(item));
 		callback_with_err_and_item(err,item);
 		});
     });

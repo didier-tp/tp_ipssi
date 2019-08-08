@@ -1,0 +1,12 @@
+[
+  { 
+  "name" :  "cahier" , 
+  "price" : 3.4 , 
+  "description" : "grand cahier"  
+  },
+  { 
+  "name" :  "stylo" , 
+  "price" : 2.4 , 
+  "description" : "stylo bille bleu"  
+  }
+]
