@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Product } from '../product';
 import { NgForm, Validators } from '@angular/forms';
 import { ProductsService } from '../products.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -22,8 +22,9 @@ export class ProductsComponent implements OnInit  {
               private productsService : ProductsService) { 
    //NB: 'categorie' correspond au nom logique du paramètre variable
    //en fin du path '/products/:categorie' d'une des routes
-   this.categorieProd = this.route.snapshot.params['categorie'];
-   console.log("categorie="+this.categorieProd);
+   //this.categorieProd = this.route.snapshot.params['categorie'];
+   this.route.params.subscribe(
+    (params: Params) => {this.categorieProd = params['categorie']; } );
 
    this.productsService.rechercherProduits(null)
                        .subscribe( (listeProd) => { this.listeProduits = listeProd },

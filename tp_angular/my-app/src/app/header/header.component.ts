@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import {Router} from '@angular/router';
+import { CommonService } from '../common.service';
 
 @Component({
   selector: 'app-header',
@@ -6,6 +8,16 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./header.component.sass']
 })
 export class HeaderComponent implements OnInit {
+
+  categorieProduit = "papeterie";
+
+  constructor(private router: Router,
+    public commonService : CommonService) { }
+
+  onCategorieChange(){
+    let link = ['/products', this.categorieProduit]; 
+    this.router.navigate( link );
+  }
 
   @Output()
   couleurEvent : EventEmitter<{value:string}> = new EventEmitter<{value:string}>();
@@ -21,7 +33,7 @@ export class HeaderComponent implements OnInit {
   listeCouleurs = [ "lightgrey" ,"red" , "green" , "blue"]
   couleurFond : string = "lightgrey";
 
-  constructor() { }
+  
 
   ngOnInit() {
   }

@@ -10,4 +10,13 @@
     -->
     <option *ngFor="let c of listeCouleurs">{{c}}</option>
   </select>
+  - 
+  categorie: <select [(ngModel)]="categorieProduit" 
+            (change)="onCategorieChange()">
+    <option>papeterie</option>
+    <option>imprimante</option>
+    <option>ordinateur</option>
+  </select> 
+  - compteur = {{commonService.compteur}}
 </div>
+

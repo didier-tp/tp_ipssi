@@ -12,6 +12,7 @@ import { ProductsService } from './products.service';
 import { HttpClientModule} from '@angular/common/http';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
+import { SelectionComponent } from './selection/selection.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { LoginComponent } from './login/login.component';
     HeaderComponent,
     ToggglePanelComponent,
     WelcomeComponent,
-    LoginComponent
+    LoginComponent,
+    SelectionComponent
   ],
   imports: [
     BrowserModule,
