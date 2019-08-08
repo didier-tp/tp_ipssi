@@ -19,10 +19,11 @@ var closeCurrentMongoDBConnection = function(){
 
 var executeInMongoDbConnection = function(callback_with_db) {
   if(currentDb==null){
-    MongoClient.connect(mongoDbUrl, function(err, db) {
+    MongoClient.connect(mongoDbUrl, function(err, /*db en v2*/ client) {
 	if(err!=null) {
 		console.log("mongoDb connection error = " + err + " for dbUrl=" + mongoDbUrl );
 	}
+	const db = client.db("test" /*dbname*/); //depuis v3
 	assert.equal(null, err);//arret de l'execution ici si err != null
 	console.log("Connected correctly to mongodb database" );
 	currentDb = db;

@@ -1,6 +1,9 @@
 var express = require("express"); //equivalent à import
 var bodyParser = require('body-parser');
 
+//importation du fichier de fonctions utilitaires pour travailler avec mongo db:
+var myGenericMongoClient = require('./my_generic_mongo_client');
+
 // "catalogue" en debut d'url est ici le nom de l'api rest 
 //(paquet de web services)
 
@@ -74,22 +77,25 @@ app.get("/catalogue/public/products/:numero" , function(req,res,next){
 //http://localhost:8282/catalogue/public/products
 //ou bien http://localhost:8282/catalogue/public/products?prixMax=2
 app.get("/catalogue/public/products" , function(req,res,next){
+	
+	myGenericMongoClient.genericFindList('products',{},
+	   (err,listeProduitsMongo) => {
+	
 	let prixMaxi = req.query.prixMax;	console.log("prixMaxi="+prixMaxi);
 	if(prixMaxi == null)
-	   res.send(listeProduits);
+	   res.send(/*listeProduits*/ listeProduitsMongo);
      else { //ne renvoyer que les produits pas trop chers .
 		 let listeProduitsPasTropChers = [];
-		 for(let p of listeProduits){
+		 for(let p of /*listeProduits*/ listeProduitsMongo){
 			 if(p.price < Number(prixMaxi)){
 				 listeProduitsPasTropChers.push(p);
 		        }
 		 }
 	     res.send(listeProduitsPasTropChers);
        }
-	/* équivalent à 
-	      res.setHeader('Content-Type', 'application/json');
-          res.write(JSON.stringify(listeProduits));
-          res.end();*/
+	   
+	   });
+	
 });
 
 app.listen(8282 , function () {
