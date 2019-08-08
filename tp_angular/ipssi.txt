@@ -1,0 +1,21 @@
+Didier Defrance
+-----
+Angular (avec typescript et nodeJs)
+----
+pdf sur clef USB
+-----
+1) installer nodeJs avec sous partie npm (sur windows ou linux ou mac)
+2) lancer "npm --version" et "node --version" pour tester
+3) installer en mode global -g @angular/cli
+   via la commande "npm install -g @angular/cli"
+4) dans un certain répertoire (ex: c:\tp)
+   lancer "ng new my-app" et choisir "y" sur routing , "css" ou "scss".
+5) cd my-app
+   ng serve
+   http://locahost:4200 (pour tester)
+
+------------
+
+npm install -g typescript
+tsc --version
+

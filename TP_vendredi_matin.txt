@@ -1,0 +1,51 @@
+cloner sur d:\temp ou ailleurs un référentiel GIT ayant  l'url suivante:
+   https://github.com/didier-tp/juin2019
+
+Ne s'intéresser qu'à la partie "tpNode"
+
+Se placer dans le répertoire D:\temp\juin2019\tpNode
+lancer la commande
+ npm install
+pour télécharger dans "node_modules" toutes les dépendances nécessaires.
+
+Lancer le script lancerAppliNode.bat (ou un equivalent sous linux)
+pour démarrer l'application nodeJs/express (backend)
+
+http://localhost:8282 dans un onglet de navigateur
+et repérer le format des URLs et la structure d'une "Devise"
+
+============================================================
+
+construire ensuite (via ng new devise-app, ...)
+une nouvelle application "frontEnd/angular" ayant les fonctionnalités suivantes:
+ - service "DeviseService" avec au moins 1 fonction de recherche pour récupérer :
+     - toutes les devises (requete http en mode get , tableau observable)
+    
+ - navigation de WelcomeComponent vers DevisesComponent
+ - le composant DevisesComponent permettra de :
+    - visualiser toutes les devises dans un tableau HTML
+    - sélectionner une monnaie source (via par exemple une liste déroulante)
+    - sélectionner une monnaie cible (via par exemple une deuxième liste déroulante)
+    - saisir un montant dans une zone de saisie
+    - déclencher (via un "button") un calcul local (conversion de monnaie 
+      en multipliant le montant par un taux de change 
+      et en divisant par un autre taux de change)
+    - afficher le résultat de la conversion {{resConv}}
+
+ - tester via ng serve et http://localhost:4200
+ - peaufiner (si le temps le permet) le look via des styles css
+
+-------------- fin de la partie "obligatoire" du tp ---------------
+
+Lorsque ce tp sera terminé :
+ - appeler le formateur 
+ - lui montrer le résultat à l'écran (et éventuellement le code)
+ - il pourra attribuer à priori une bonne note
+
+-------- pour patienter (autres stagiaires) :
+  - peaufiner une des applications (my-app avec "product" , serveur )
+                                   (devise-app , ...)
+    en mode "essais libres" .
+
+
+

@@ -1,0 +1,133 @@
+QCM Angular et NodeJs/Express
+=============================
+Répondre "1a ou 1b ou 1c ou 1d" , ... , "20a ou 20b ou 20c ou 20d"
+sur une feuille de papier avec votre nom et prenom .
+=============================
+1. Quelle est la bonne syntaxe pour un binding bidirectionnel ?
+	a) ngModel='{{obj.prop}}'
+	b) [(ngModel)]='obj.prop'
+	c) ng-model='obj.prop'
+	d) (ngModel)=${obj.prop}
+	
+2. Comment créer le répertoire "dist" contenant une appli angular à déployer ?
+    a) angular deploy
+    b) angular -generate
+	c) ng deploy-app
+	d) ng build --prod
+	
+3. A quoi sert la partie "selector" de @Component ?
+    a) à configurer le nom de la balise html permettant d'accrocher
+       le composant à son parent
+    b) à sélectionner le module auquel le composant sera lié
+    c) à préciser un fichier de styles css
+    d) à spécifier un service à injecter
+
+4. Quelle est la bonne syntaxe pour effectuer une boucle ?
+    a) <forEach items="let p of products" > .... </forEach>
+    b) <tr *ngFor="let p of products">...</tr>
+	c) <tr for(p of this.products) > ...</tr>
+	d) <for p in products>...</for>
+	
+5. Comment dynamiquement ajuster un style css en fonction d'une variable
+   d'un composant angular ?
+   a) <button style.color="${isSpecial ? 'red' : 'green'}">Red</button>
+   b) <button [style.color] = "isSpecial ? 'red' : 'green'">Red</button>
+   c) <button style[color] = {{isSpecial ? 'red' : 'green'}} >Red</button>
+   d) <button [ngStyle] = "${{isSpecial ? 'red' : 'green'}}">Red</button>
+   
+6. Comment faire en sorte qu'une propriété d'un composant angular soit
+   accessible/paramétrable au niveau de son parent ?   
+   a) via @Property
+   b) via @Value
+   c) via @Param(name="propXy")
+   d) via @Input()
+   
+7. Quelle est la decoration à placer sur un service angular ?
+   a) @Injectable()
+   b) @NgService()
+   c) @Config(type="service" , name="sXy")
+   d) @ConfigurableService()
+
+8. Quelle est la balise automatiquement remplacée par un composant
+   angular en fonction des routes configurées ?
+   a) <switchable-component>
+   b) <router-outlet>
+   c) <current-route-component>
+   d) <selected-component>   
+   
+9. Comment déclencher une navigation angular ?
+   a)<a [routerLink]="['/xx' ]" ...> vers xx </a>
+   b)<a [href]="xx" ...> vers xx </a> 
+   c)<a href="{{xx}}" ...> vers xx </a> 
+   d)<a [ngNav]="'xx'" ...> vers xx </a>    
+   
+10. Quel est le type d'objet à injecter pour appeler un Web Service REST 
+    dans une application Angular (à partir de la version 4.3) ?
+	a) Ajax
+	b) WebService
+	c) NgHttp
+	d) HttpClient  
+  
+11. Pour déclencher une requête Http/Ajax permettant d'envoyer 
+    des données saisies dans un formulaire angular , il faut appeler
+	a) http.post<Entity>(wsUrl ,obj,{headers: this._headers} );
+	b) ngHttp.send<Entity>(wsUrl ,obj,"application/json" );
+	c) http.ajax("POST",wsUrl ,obj);
+	d) $.ajax("POST",wsUrl ,obj,{Content-type: 'application.json'} );
+	
+12. Quelle est la méthode à appeler sur un objet "Observable" et qui permet
+    d'enregristrer une "callback" pour traiter le résultat en asynchrone ?
+	a) onSuccess()
+	b) callback()
+	c) subscribe()
+	d) async()
+	
+13. Quel est le fichier de configuration de typescript (tsc) ?
+	a) typescript-config.ts
+	b) proxy.conf.json
+	c) tsconfig.json
+	d) package.json
+	
+14. Quel est le principal fichier de configuration de npm/nodeJs ?
+	a) node.conf.json
+	b) proxy.conf.json
+	c) npm.json
+	d) package.json
+	
+15. Quelle est la commande à lancer pour télécharger express dans nodeJs ?
+	a) npm install --save express
+	b) node install express
+	c) node-get install express
+	d) npm-get -install express
+	
+16. Comment importer les éléments d'un module "nodeJs" ?
+	a) var moduleXy = require('moduleXy');
+	b) var moduleXy = import('moduleXy');
+	c) var moduleXy = importModuleFrom( 'moduleXy.js' );
+	d) import ( { module : "moduleXy"  , var : "moduleXy" });
+	
+17. A quoi sert l'instruction res.status(404).send(null); ?
+	a) à retourner le statut 404/"NotAuthorized" au sein de la réponse http
+	b) à retourner le statut 404/"NotFound" au sein de la réponse http
+	c) à retourner le statut 404/"Internal Server Error" au sein de la réponse http
+	d) à placer le code d'erreur 404/"StackOverflow" au sein du résultat
+	
+18. A quoi sert   var jsonParser = bodyParser.json() ; app.use(jsonParser) ?
+    a) à convertir le contenu de la réponse http en une "JSON string"  . 
+	b) à convertir les "resultSet SQL" en "JSON string"  . 
+	c) à convertir req.body de "JSON string" en "objet javascript" . 
+	d) à convertir req.body de "XML" en "JSON" . 
+
+19. Que signifie le sigle CORS ?
+	a) Cross Origin Resource Sharing
+	b) Custom Object Response Sending
+	c) Custom Object Response Spreading
+	d) C++ Object Response Spliting
+	
+20. Pour une recherche multiple (suivant le conventions "REST") l'URL est 
+    a) http://xyz.com/appliAbc/apiZz/entiyXy#critere1@valeurQuiVaBien
+	b) http://xyz.com/appliAbc/apiZz/entiyXy/valeurDeRechercheQuiVaBien 
+	c) http://xyz.com/appliAbc/apiZz/entiyXy/critere1/valeurQuiVaBien
+	d) http://xyz.com/appliAbc/apiZz/entiyXy?critere1=valeurQuiVaBien 	
+	
+	
