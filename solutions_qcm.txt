@@ -1,0 +1,2 @@
+1b 2d 3a 4b 5b 6d 7a 8b 9a 10d
+11a 12c 13c 14d 15a 16a 17b 18c 19a 20d
