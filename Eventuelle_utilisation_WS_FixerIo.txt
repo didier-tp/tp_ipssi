@@ -1,0 +1,18 @@
+En ouvrant un compte gratuit auprès de l'entreprise https://fixer.io
+(avec simple email à confirmer),
+on peut récupérer un code confidentiel (api_key/access_key).
+
+Ce qui donne le droit d'invoquer le web service avec une URL de type
+http://data.fixer.io/api/latest?access_key=26ca93ee7............aaa27cab235
+
+La réponse de type
+{
+"success":true, "timestamp":1538984646, "base":"EUR", "date":"2018-10-08",
+"rates":
+{"AED":4.224369,...,"DKK":7.460075,"DOP":57.311592,"DZD":136.091172,"EGP":20.596249,
+"ERN":17.250477,"ETB":31.695652,"EUR":1,"FJD":2.46956,"FKP":0.88584,"GBP":0.879667,.
+...,"JPY":130.858498,....,"USD":1.15005,...,"ZWL":370.724343}
+}
+
+permettrait d'effectuer des conversions de devises
+avec de véritables taux actualisés tous les jours .
