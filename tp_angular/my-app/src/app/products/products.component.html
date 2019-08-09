@@ -39,13 +39,15 @@ prixMaxi:
  <br/>
  categorie = <b>{{categorieProd}}</b> <br/>
 <table border="1">
-    <tr><th>id/num</th><th>name</th><th>price</th><th>description</th></tr>
+    <tr><th>id/num</th><th>name</th><th>price</th><th>description</th><th>action</th></tr>
     <tr *ngFor="let p of listeProduits">
          <!--<td>{{p.num}}</td>-->
          <td>{{p._id}}</td>
          <td>{{p.name}}</td>
          <td>{{p.price}}</td>
          <td>{{p.description}}</td>
+         <td><input type="button" value="delete"
+              (click)="onDeleteProd(p)"/></td>
     </tr>
 </table>
 <!--

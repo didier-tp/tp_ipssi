@@ -31,6 +31,14 @@ export class ProductsComponent implements OnInit  {
 
   }
 
+  onDeleteProd(p:Product){
+    this.productsService.supprimerProduit(p._id)
+    .subscribe(
+      ()=>{ console.log("suppression ok"); this.onRefreshCategorie(); },
+      (err)=>{console.log(err);}
+    )
+  }
+
   onRefreshPrixMaxi() { 
     this.productsService.rechercherProduits(this.categorieProd,this.prixMaxi)
                         .subscribe( (listeProd) => { this.listeProduits = listeProd },

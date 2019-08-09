@@ -19,6 +19,11 @@ export class ProductsService {
     return this.http.post<Product>(urlWs,p,{headers: this._headers});
   }
 
+  supprimerProduit(idProd : any) : Observable<any> {
+    let urlWs = "./catalogue/private/products/"+idProd;
+    return this.http.delete(urlWs);
+  }
+
   //NB: Observable de rxjs correspondra à :
       // - un objet technique immédiatement retourné par cette méthode
       // - qui permettra de récupéré le résultat en différé (asynchrone)
