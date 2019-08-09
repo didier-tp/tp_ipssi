@@ -17,6 +17,10 @@
     <option>imprimante</option>
     <option>ordinateur</option>
   </select> 
+  <!--
   - compteur = {{commonService.compteur}}
+  -->
+  - compteur = <span [style.font-weight]="enGras ? 'bold' : 'normal' " >
+    {{copieLocaleCompteur}} </span>
 </div>
 

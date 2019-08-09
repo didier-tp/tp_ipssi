@@ -10,9 +10,17 @@ import { CommonService } from '../common.service';
 export class HeaderComponent implements OnInit {
 
   categorieProduit = "papeterie";
+  copieLocaleCompteur : number;
+  enGras : boolean = false;
 
   constructor(private router: Router,
-    public commonService : CommonService) { }
+    public commonService : CommonService) { 
+      this.commonService.bsCompteur.subscribe(
+        (nouvelleValeurCpt)=>{
+          this.copieLocaleCompteur=nouvelleValeurCpt;
+          this.enGras = ! this.enGras;}
+      );
+    }
 
   onCategorieChange(){
     let link = ['/products', this.categorieProduit]; 

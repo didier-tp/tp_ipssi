@@ -14,7 +14,9 @@ export class SelectionComponent implements OnInit {
 
   onAjoutSelection(){
     console.log("ajout element " + this.element);
-    this.commonService.compteur++;
+    //this.commonService.compteur++;
+    let cpt = this.commonService.bsCompteur.getValue();
+    this.commonService.bsCompteur.next(cpt+1);
   }
 
   ngOnInit() {
