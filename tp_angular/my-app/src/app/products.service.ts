@@ -19,13 +19,15 @@ export class ProductsService {
     return this.http.post<Product>(urlWs,p,{headers: this._headers});
   }
 
-  //NB: Observable de rxjs permettra correspondra à :
+  //NB: Observable de rxjs correspondra à :
       // - un objet technique immédiatement retourné par cette méthode
       // - qui permettra de récupéré le résultat en différé (asynchrone)
-  rechercherProduits(prixMaxi : number) : Observable < Product[] > {
+  rechercherProduits(categorie : string,prixMaxi : number) : Observable < Product[] > {
     //NB: URL absolue ok si autorisations "CORS" dans nodejs/express
     //let urlWs = "http://localhost:8282/catalogue/public/products";
     let urlWs = "./catalogue/public/products";
+    if(categorie) 
+        urlWs+="?categorie="+categorie;
     if(prixMaxi) 
         urlWs+="?prixMax="+prixMaxi;
     //NB: url relative ok si ng serve --proxy-config proxy.conf.json

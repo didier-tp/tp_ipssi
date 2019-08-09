@@ -24,29 +24,29 @@ export class ProductsComponent implements OnInit  {
    //en fin du path '/products/:categorie' d'une des routes
    //this.categorieProd = this.route.snapshot.params['categorie'];
    this.route.params.subscribe(
-    (params: Params) => {this.categorieProd = params['categorie']; } );
+    (params: Params) => {this.categorieProd = params['categorie'];
+                         this.onRefreshCategorie() } );
 
-   this.productsService.rechercherProduits(null)
-                       .subscribe( (listeProd) => { this.listeProduits = listeProd },
-                                   (err) => { console.log(err) });
 
-   /*
-    //code temporaire (avant appel Web service):
-   this.listeProduits.push(new Product(1,"cahier",2.5,"grand cahier"));
-   this.listeProduits.push(new Product(2,"gomme",1.5,"petite gomme"));
-   this.listeProduits.push(new Product(3,"trousse",4.5,"trousse rouge"));
-   this.numProdMax=3*/
 
   }
 
   onRefreshPrixMaxi() { 
-    this.productsService.rechercherProduits(this.prixMaxi)
+    this.productsService.rechercherProduits(this.categorieProd,this.prixMaxi)
+                        .subscribe( (listeProd) => { this.listeProduits = listeProd },
+                                    (err) => { console.log(err) });
+  }
+
+  onRefreshCategorie() {
+    this.prixMaxi=null; 
+    this.productsService.rechercherProduits(this.categorieProd,null)
                         .subscribe( (listeProd) => { this.listeProduits = listeProd },
                                     (err) => { console.log(err) });
   }
  
 
   public onAjoutProduit(){
+    this.nouveauProduit.categorie=this.categorieProd;
     this.productsService.ajouterProduit(this.nouveauProduit)
         .subscribe( (produitEnregistre) => { 
                           console.log("produit enregistre=" + 
@@ -54,7 +54,7 @@ export class ProductsComponent implements OnInit  {
                           this.onRefreshPrixMaxi();
                          },
                     (err) => { console.log(err) })
-    this.nouveauProduit = new Product();
+    this.nouveauProduit = new Product(); 
   }
 
   ngOnInit() {

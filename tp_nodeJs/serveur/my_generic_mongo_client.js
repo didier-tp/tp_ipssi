@@ -81,9 +81,22 @@ var genericFindOne = function(collectionName,query, callback_with_err_and_item) 
     });
 };
 
+var genericDeleteOne = function(collectionName,query, callback_with_err) {
+	executeInMongoDbConnection( function(db) {
+		db.collection(collectionName).deleteOne(query , function(err) {
+			if(err!=null) {
+				console.log("genericDeleteOne error = " + err);
+		}
+		callback_with_err(err);
+		});
+    });
+};
+
+
 exports.genericUpdateOne = genericUpdateOne;
 exports.genericInsertOne = genericInsertOne;
 exports.genericFindList = genericFindList;
 exports.genericFindOne = genericFindOne;
+exports.genericDeleteOne = genericDeleteOne;
 exports.setMongoDbUrl= setMongoDbUrl;
 exports.closeCurrentMongoDBConnection=closeCurrentMongoDBConnection;

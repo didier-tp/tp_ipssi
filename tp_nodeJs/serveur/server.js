@@ -36,9 +36,19 @@ myGenericMongoClient.genericInsertOne('products', 	nouveauProduit,
 
 //http://localhost:8282/catalogue/private/products/1 (suppression selon id/pk)
 app.delete("/catalogue/private/products/:id" , function(req,res,next){
-	let numProd = req.params.id; //1 ou 2 ou ...
-	console.log("delete avec numProd="+numProd);
-	// à faire plus tard.	
+	let idProd = req.params.id; //1 ou 2 ou ...
+	console.log("delete avec idProd="+idProd);
+	
+	myGenericMongoClient.genericDeleteOne('products',
+     	{ '_id' : new ObjectId(idProd) },
+	   (err) => {
+	
+		if(err)
+		  res.status(404).send(null);	//404 = status HTTP notfound .	
+			else
+		  res.status(200).send(null);
+
+	   });
 	  
 });
 
@@ -62,9 +72,13 @@ app.get("/catalogue/public/products/:id" , function(req,res,next){
 });
 //http://localhost:8282/catalogue/public/products
 //ou bien http://localhost:8282/catalogue/public/products?prixMax=2
+//ou bien http://localhost:8282/catalogue/public/products?categorie=papeterie
+//ou bien .../products?prixMax=2&categorie=papeterie
 app.get("/catalogue/public/products" , function(req,res,next){
+	let categorie = req.query.categorie;	console.log("categorie="+categorie);
+	let mongoQuery = categorie ? { categorie : categorie } : { } ;
 	
-	myGenericMongoClient.genericFindList('products',{},
+	myGenericMongoClient.genericFindList('products',mongoQuery,
 	   (err,listeProduitsMongo) => {
 	
 	let prixMaxi = req.query.prixMax;	console.log("prixMaxi="+prixMaxi);
@@ -81,7 +95,6 @@ app.get("/catalogue/public/products" , function(req,res,next){
        }
 	   
 	   });
-	
 });
 
 app.listen(8282 , function () {

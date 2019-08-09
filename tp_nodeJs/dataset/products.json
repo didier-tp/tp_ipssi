@@ -2,11 +2,31 @@
   { 
   "name" :  "cahier" , 
   "price" : 3.4 , 
-  "description" : "grand cahier"  
+  "description" : "grand cahier"  ,
+  "categorie" : "papeterie"
   },
   { 
   "name" :  "stylo" , 
   "price" : 2.4 , 
-  "description" : "stylo bille bleu"  
-  }
+  "description" : "stylo bille bleu" ,
+  "categorie" : "papeterie" 
+  },
+  { 
+    "name" :  "pc asus" , 
+    "price" : 560.4 , 
+    "description" : "portable 15 pouces"  ,
+    "categorie" : "ordinateur"
+    },
+    { 
+    "name" :  "pc hp" , 
+    "price" : 648.4 , 
+    "description" : "pc portable 17 pouces" ,
+    "categorie" : "ordinateur" 
+    },
+    { 
+      "name" :  "imprimante xyz" , 
+      "price" : 156.4 , 
+      "description" : "imprimante jet encre a4"  ,
+      "categorie" : "imprimante"
+      }
 ]

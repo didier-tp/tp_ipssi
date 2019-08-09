@@ -1,3 +1,4 @@
+<div [style.background]="'#aabbcc'">
 <p> welcome works!</p>
 <a [routerLink]="['/login']" >vers login</a> <br/>
 <a [routerLink]="['/selection']" >vers selection</a> <br/>
@@ -9,3 +10,4 @@ categorie: <select [(ngModel)]="categorieProduit" >
 </select> 
 <a [routerLink]="['/products' , categorieProduit ]" >produits 
         de la categorie selectionnée</a> <br/>
+</div>
